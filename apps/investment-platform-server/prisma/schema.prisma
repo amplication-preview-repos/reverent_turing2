@@ -1,0 +1,146 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model PerformanceMetric {
+  createdAt    DateTime  @default(now())
+  dateRecorded DateTime?
+  id           String    @id @default(cuid())
+  metricName   String?
+  relatedFund  String?
+  updatedAt    DateTime  @updatedAt
+  value        Float?
+}
+
+model Investor {
+  aboutDescriptionOfFirm                             String?
+  assetsAllocatedToAlternativesEuros                 Float?
+  assetsAllocatedToAlternativesLocalCurrency         Float?
+  assetsAllocatedToAlternativesPercentage            Float?
+  assetsAllocatedToAlternativesUsDollars             Float?
+  assetsAllocatedToCashEuros                         Float?
+  assetsAllocatedToCashLocalCurrency                 Float?
+  assetsAllocatedToCashPercentage                    Float?
+  assetsAllocatedToCashUsDollars                     Float?
+  assetsAllocatedToEquitiesEuros                     Float?
+  assetsAllocatedToEquitiesLocalCurrency             Float?
+  assetsAllocatedToEquitiesPercentage                Float?
+  assetsAllocatedToEquitiesUsDollars                 Float?
+  assetsAllocatedToFixedIncomeEuros                  Float?
+  assetsAllocatedToFixedIncomeLocalCurrency          Float?
+  assetsAllocatedToFixedIncomePercentage             Float?
+  assetsAllocatedToFixedIncomeUsDollars              Float?
+  assetsAllocatedToOtherEuros                        Float?
+  assetsAllocatedToOtherLocalCurrency                Float?
+  assetsAllocatedToOtherPercentage                   Float?
+  assetsAllocatedToOtherUsDollars                    Float?
+  assetsUnderManagementInEuros                       Float?
+  assetsUnderManagementInInvestorCurrency            Float?
+  assetsUnderManagementInUsDollars                   Float?
+  cityFirmsMainOffice                                String?
+  contactNumber                                      String?
+  country                                            String?
+  countryFirmsMainOffice                             String?
+  createdAt                                          DateTime                @default(now())
+  currencyFirmInvestsIn                              String?
+  email                                              String?
+  emailAddressOfFirm                                 String?
+  faxNumberOfFirm                                    String?
+  firmsGeneralInvestmentConsultant                   String?
+  id                                                 String                  @id @default(cuid())
+  localLanguageNameOfFirm                            String?
+  maximumTargetAllocationToAlternativesEuros         Float?
+  maximumTargetAllocationToAlternativesLocalCurrency Float?
+  maximumTargetAllocationToAlternativesPercentage    Float?
+  maximumTargetAllocationToAlternativesUsDollars     Float?
+  maximumTargetAllocationToCashEuros                 Float?
+  maximumTargetAllocationToCashLocalCurrency         Float?
+  maximumTargetAllocationToCashPercentage            Float?
+  maximumTargetAllocationToCashUsDollars             Float?
+  maximumTargetAllocationToEquitiesEuros             Float?
+  maximumTargetAllocationToEquitiesLocalCurrency     Float?
+  maximumTargetAllocationToEquitiesPercentage        Float?
+  maximumTargetAllocationToEquitiesUsDollars         Float?
+  maximumTargetAllocationToFixedIncomeEuros          Float?
+  maximumTargetAllocationToFixedIncomeLocalCurrency  Float?
+  maximumTargetAllocationToFixedIncomePercentage     Float?
+  maximumTargetAllocationToFixedIncomeUsDollars      Float?
+  maximumTargetAllocationToOtherEuros                Float?
+  maximumTargetAllocationToOtherLocalCurrency        Float?
+  maximumTargetAllocationToOtherPercentage           Float?
+  maximumTargetAllocationToOtherUsDollars            Float?
+  minimumTargetAllocationToAlternativesEuros         Float?
+  minimumTargetAllocationToAlternativesLocalCurrency Float?
+  minimumTargetAllocationToAlternativesPercentage    Float?
+  minimumTargetAllocationToAlternativesUsDollars     Float?
+  minimumTargetAllocationToCashEuros                 Float?
+  minimumTargetAllocationToCashLocalCurrency         Float?
+  minimumTargetAllocationToCashPercentage            Float?
+  minimumTargetAllocationToCashUsDollars             Float?
+  minimumTargetAllocationToEquitiesEuros             Float?
+  minimumTargetAllocationToEquitiesLocalCurrency     Float?
+  minimumTargetAllocationToEquitiesPercentage        Float?
+  minimumTargetAllocationToEquitiesUsDollars         Float?
+  minimumTargetAllocationToFixedIncomeEuros          Float?
+  minimumTargetAllocationToFixedIncomeLocalCurrency  Float?
+  minimumTargetAllocationToFixedIncomePercentage     Float?
+  minimumTargetAllocationToFixedIncomeUsDollars      Float?
+  minimumTargetAllocationToOtherEuros                Float?
+  minimumTargetAllocationToOtherLocalCurrency        Float?
+  minimumTargetAllocationToOtherPercentage           Float?
+  minimumTargetAllocationToOtherUsDollars            Float?
+  name                                               String?
+  nameOfFirm                                         String?
+  numberOfKnownInvestmentsMade                       Int?
+  regionFirmsMainOffice                              String?
+  secondaryOfficeLocationsOfFirm                     String?
+  stateOrCountyOfFirmsMainOffice                     String?
+  streetAddressOfFirm                                String?
+  telephoneNumberOfFirm                              String?
+  typeOfFirm                                         EnumInvestorTypeOfFirm?
+  uniqueFirmIdentifier                               String?
+  updatedAt                                          DateTime                @updatedAt
+  websiteOfFirm                                      String?
+  yearFirmWasEstablished                             Int?
+  zipCodeOfFirmsMainOffice                           String?
+}
+
+model MarketAnalysis {
+  analysisTitle   String?
+  createdAt       DateTime  @default(now())
+  description     String?
+  id              String    @id @default(cuid())
+  industryFocus   String?
+  publicationDate DateTime?
+  updatedAt       DateTime  @updatedAt
+}
+
+model Fund {
+  createdAt          DateTime @default(now())
+  currency           String?
+  id                 String   @id @default(cuid())
+  investmentStrategy String?
+  name               String?
+  size               Float?
+  updatedAt          DateTime @updatedAt
+}
+
+model InvestmentFirm {
+  createdAt       DateTime  @default(now())
+  establishedDate DateTime?
+  firmType        String?
+  fundsManaged    String?
+  id              String    @id @default(cuid())
+  name            String?
+  totalAssets     Float?
+  updatedAt       DateTime  @updatedAt
+}
+
+enum EnumInvestorTypeOfFirm {
+  Option1
+}
