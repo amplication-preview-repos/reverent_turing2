@@ -1,0 +1,59 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model PerformanceMetric {
+  createdAt    DateTime  @default(now())
+  dateRecorded DateTime?
+  id           String    @id @default(cuid())
+  metricName   String?
+  relatedFund  String?
+  updatedAt    DateTime  @updatedAt
+  value        Float?
+}
+
+model MarketAnalysis {
+  analysisTitle   String?
+  createdAt       DateTime  @default(now())
+  description     String?
+  id              String    @id @default(cuid())
+  industryFocus   String?
+  publicationDate DateTime?
+  updatedAt       DateTime  @updatedAt
+}
+
+model Fund {
+  createdAt          DateTime @default(now())
+  currency           String?
+  id                 String   @id @default(cuid())
+  investmentStrategy String?
+  name               String?
+  size               Float?
+  updatedAt          DateTime @updatedAt
+}
+
+model Investor {
+  contactNumber String?
+  country       String?
+  createdAt     DateTime @default(now())
+  email         String?
+  id            String   @id @default(cuid())
+  name          String?
+  updatedAt     DateTime @updatedAt
+}
+
+model InvestmentFirm {
+  createdAt       DateTime  @default(now())
+  establishedDate DateTime?
+  firmType        String?
+  fundsManaged    String?
+  id              String    @id @default(cuid())
+  name            String?
+  totalAssets     Float?
+  updatedAt       DateTime  @updatedAt
+}
