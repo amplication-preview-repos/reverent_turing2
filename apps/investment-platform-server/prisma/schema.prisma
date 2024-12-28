@@ -17,6 +17,99 @@ model PerformanceMetric {
   value        Float?
 }
 
+model Investor {
+  aboutDescriptionOfFirm                             String?
+  assetsAllocatedToAlternativesEuros                 Float?
+  assetsAllocatedToAlternativesLocalCurrency         Float?
+  assetsAllocatedToAlternativesPercentage            Float?
+  assetsAllocatedToAlternativesUsDollars             Float?
+  assetsAllocatedToCashEuros                         Float?
+  assetsAllocatedToCashLocalCurrency                 Float?
+  assetsAllocatedToCashPercentage                    Float?
+  assetsAllocatedToCashUsDollars                     Float?
+  assetsAllocatedToEquitiesEuros                     Float?
+  assetsAllocatedToEquitiesLocalCurrency             Float?
+  assetsAllocatedToEquitiesPercentage                Float?
+  assetsAllocatedToEquitiesUsDollars                 Float?
+  assetsAllocatedToFixedIncomeEuros                  Float?
+  assetsAllocatedToFixedIncomeLocalCurrency          Float?
+  assetsAllocatedToFixedIncomePercentage             Float?
+  assetsAllocatedToFixedIncomeUsDollars              Float?
+  assetsAllocatedToOtherEuros                        Float?
+  assetsAllocatedToOtherLocalCurrency                Float?
+  assetsAllocatedToOtherPercentage                   Float?
+  assetsAllocatedToOtherUsDollars                    Float?
+  assetsUnderManagementInEuros                       Float?
+  assetsUnderManagementInInvestorCurrency            Float?
+  assetsUnderManagementInUsDollars                   Float?
+  cityFirmsMainOffice                                String?
+  contactNumber                                      String?
+  country                                            String?
+  countryFirmsMainOffice                             String?
+  createdAt                                          DateTime                @default(now())
+  currencyFirmInvestsIn                              String?
+  email                                              String?
+  emailAddressOfFirm                                 String?
+  faxNumberOfFirm                                    String?
+  firmsGeneralInvestmentConsultant                   String?
+  id                                                 String                  @id @default(cuid())
+  localLanguageNameOfFirm                            String?
+  maximumTargetAllocationToAlternativesEuros         Float?
+  maximumTargetAllocationToAlternativesLocalCurrency Float?
+  maximumTargetAllocationToAlternativesPercentage    Float?
+  maximumTargetAllocationToAlternativesUsDollars     Float?
+  maximumTargetAllocationToCashEuros                 Float?
+  maximumTargetAllocationToCashLocalCurrency         Float?
+  maximumTargetAllocationToCashPercentage            Float?
+  maximumTargetAllocationToCashUsDollars             Float?
+  maximumTargetAllocationToEquitiesEuros             Float?
+  maximumTargetAllocationToEquitiesLocalCurrency     Float?
+  maximumTargetAllocationToEquitiesPercentage        Float?
+  maximumTargetAllocationToEquitiesUsDollars         Float?
+  maximumTargetAllocationToFixedIncomeEuros          Float?
+  maximumTargetAllocationToFixedIncomeLocalCurrency  Float?
+  maximumTargetAllocationToFixedIncomePercentage     Float?
+  maximumTargetAllocationToFixedIncomeUsDollars      Float?
+  maximumTargetAllocationToOtherEuros                Float?
+  maximumTargetAllocationToOtherLocalCurrency        Float?
+  maximumTargetAllocationToOtherPercentage           Float?
+  maximumTargetAllocationToOtherUsDollars            Float?
+  minimumTargetAllocationToAlternativesEuros         Float?
+  minimumTargetAllocationToAlternativesLocalCurrency Float?
+  minimumTargetAllocationToAlternativesPercentage    Float?
+  minimumTargetAllocationToAlternativesUsDollars     Float?
+  minimumTargetAllocationToCashEuros                 Float?
+  minimumTargetAllocationToCashLocalCurrency         Float?
+  minimumTargetAllocationToCashPercentage            Float?
+  minimumTargetAllocationToCashUsDollars             Float?
+  minimumTargetAllocationToEquitiesEuros             Float?
+  minimumTargetAllocationToEquitiesLocalCurrency     Float?
+  minimumTargetAllocationToEquitiesPercentage        Float?
+  minimumTargetAllocationToEquitiesUsDollars         Float?
+  minimumTargetAllocationToFixedIncomeEuros          Float?
+  minimumTargetAllocationToFixedIncomeLocalCurrency  Float?
+  minimumTargetAllocationToFixedIncomePercentage     Float?
+  minimumTargetAllocationToFixedIncomeUsDollars      Float?
+  minimumTargetAllocationToOtherEuros                Float?
+  minimumTargetAllocationToOtherLocalCurrency        Float?
+  minimumTargetAllocationToOtherPercentage           Float?
+  minimumTargetAllocationToOtherUsDollars            Float?
+  name                                               String?
+  nameOfFirm                                         String?
+  numberOfKnownInvestmentsMade                       Int?
+  regionFirmsMainOffice                              String?
+  secondaryOfficeLocationsOfFirm                     String?
+  stateOrCountyOfFirmsMainOffice                     String?
+  streetAddressOfFirm                                String?
+  telephoneNumberOfFirm                              String?
+  typeOfFirm                                         EnumInvestorTypeOfFirm?
+  uniqueFirmIdentifier                               String?
+  updatedAt                                          DateTime                @updatedAt
+  websiteOfFirm                                      String?
+  yearFirmWasEstablished                             Int?
+  zipCodeOfFirmsMainOffice                           String?
+}
+
 model MarketAnalysis {
   analysisTitle   String?
   createdAt       DateTime  @default(now())
@@ -37,16 +130,6 @@ model Fund {
   updatedAt          DateTime @updatedAt
 }
 
-model Investor {
-  contactNumber String?
-  country       String?
-  createdAt     DateTime @default(now())
-  email         String?
-  id            String   @id @default(cuid())
-  name          String?
-  updatedAt     DateTime @updatedAt
-}
-
 model InvestmentFirm {
   createdAt       DateTime  @default(now())
   establishedDate DateTime?
@@ -56,4 +139,8 @@ model InvestmentFirm {
   name            String?
   totalAssets     Float?
   updatedAt       DateTime  @updatedAt
+}
+
+enum EnumInvestorTypeOfFirm {
+  Option1
 }

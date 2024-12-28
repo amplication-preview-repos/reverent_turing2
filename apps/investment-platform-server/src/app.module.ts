@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
 import { PerformanceMetricModule } from "./performanceMetric/performanceMetric.module";
+import { InvestorModule } from "./investor/investor.module";
 import { MarketAnalysisModule } from "./marketAnalysis/marketAnalysis.module";
 import { FundModule } from "./fund/fund.module";
-import { InvestorModule } from "./investor/investor.module";
 import { InvestmentFirmModule } from "./investmentFirm/investmentFirm.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
@@ -17,9 +17,9 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
   controllers: [],
   imports: [
     PerformanceMetricModule,
+    InvestorModule,
     MarketAnalysisModule,
     FundModule,
-    InvestorModule,
     InvestmentFirmModule,
     HealthModule,
     PrismaModule,

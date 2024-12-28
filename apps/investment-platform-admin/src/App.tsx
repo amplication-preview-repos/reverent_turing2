@@ -9,6 +9,10 @@ import { PerformanceMetricList } from "./performanceMetric/PerformanceMetricList
 import { PerformanceMetricCreate } from "./performanceMetric/PerformanceMetricCreate";
 import { PerformanceMetricEdit } from "./performanceMetric/PerformanceMetricEdit";
 import { PerformanceMetricShow } from "./performanceMetric/PerformanceMetricShow";
+import { InvestorList } from "./investor/InvestorList";
+import { InvestorCreate } from "./investor/InvestorCreate";
+import { InvestorEdit } from "./investor/InvestorEdit";
+import { InvestorShow } from "./investor/InvestorShow";
 import { MarketAnalysisList } from "./marketAnalysis/MarketAnalysisList";
 import { MarketAnalysisCreate } from "./marketAnalysis/MarketAnalysisCreate";
 import { MarketAnalysisEdit } from "./marketAnalysis/MarketAnalysisEdit";
@@ -17,10 +21,6 @@ import { FundList } from "./fund/FundList";
 import { FundCreate } from "./fund/FundCreate";
 import { FundEdit } from "./fund/FundEdit";
 import { FundShow } from "./fund/FundShow";
-import { InvestorList } from "./investor/InvestorList";
-import { InvestorCreate } from "./investor/InvestorCreate";
-import { InvestorEdit } from "./investor/InvestorEdit";
-import { InvestorShow } from "./investor/InvestorShow";
 import { InvestmentFirmList } from "./investmentFirm/InvestmentFirmList";
 import { InvestmentFirmCreate } from "./investmentFirm/InvestmentFirmCreate";
 import { InvestmentFirmEdit } from "./investmentFirm/InvestmentFirmEdit";
@@ -46,6 +46,13 @@ const App = (): React.ReactElement => {
           show={PerformanceMetricShow}
         />
         <Resource
+          name="Investor"
+          list={InvestorList}
+          edit={InvestorEdit}
+          create={InvestorCreate}
+          show={InvestorShow}
+        />
+        <Resource
           name="MarketAnalysis"
           list={MarketAnalysisList}
           edit={MarketAnalysisEdit}
@@ -58,13 +65,6 @@ const App = (): React.ReactElement => {
           edit={FundEdit}
           create={FundCreate}
           show={FundShow}
-        />
-        <Resource
-          name="Investor"
-          list={InvestorList}
-          edit={InvestorEdit}
-          create={InvestorCreate}
-          show={InvestorShow}
         />
         <Resource
           name="InvestmentFirm"
